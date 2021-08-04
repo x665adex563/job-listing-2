@@ -43,6 +43,11 @@ GEM
     arel (7.1.4)
     autoprefixer-rails (10.2.5.1)
       execjs (> 0)
+    awesome_print (1.9.2)
+    awesome_rails_console (0.4.4)
+      awesome_print
+      pry-rails
+      railties
     bcrypt (3.1.16)
     bindex (0.8.1)
     bootstrap-sass (3.4.1)
@@ -58,6 +63,7 @@ GEM
       marcel (~> 1.0.0)
       mini_mime (>= 0.1.3)
       ssrf_filter (~> 1.0)
+    coderay (1.1.3)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -110,6 +116,13 @@ GEM
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    polyamorous (2.3.0)
+      activerecord (>= 5.0)
+    pry (0.14.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
     public_suffix (4.0.6)
     puma (3.12.6)
     racc (1.5.2)
@@ -140,6 +153,12 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (13.0.3)
+    ransack (2.3.0)
+      actionpack (>= 5.0)
+      activerecord (>= 5.0)
+      activesupport (>= 5.0)
+      i18n
+      polyamorous (= 2.3.0)
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -161,6 +180,7 @@ GEM
       tilt (>= 1.1, < 3)
     sassc (2.4.0)
       ffi (~> 1.9)
+    seo_helper (1.0.3)
     simple_form (5.0.3)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -193,11 +213,15 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    will_paginate (3.3.0)
+    will_paginate-bootstrap (1.0.2)
+      will_paginate (>= 3.0.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_rails_console
   bootstrap-sass
   byebug
   carrierwave
@@ -209,13 +233,16 @@ DEPENDENCIES
   listen (~> 3.0.5)
   puma (~> 3.0)
   rails (~> 5.0.0)
+  ransack
   sass-rails (~> 5.0)
+  seo_helper
   simple_form
   sqlite3 (~> 1.3.13)
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console
+  will_paginate-bootstrap
 
 BUNDLED WITH
    1.17.3

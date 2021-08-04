@@ -1,40 +1,168 @@
-  <div class="jumbotron">
-    <h1 class="title">18K Offer</h1>
-    <p class="slogan">18K Offer 是一个提供18K薪水工作机会的求职网站。
-    <br>
-    我们希望藉由这个网站，能让大家找到且应征上高薪且优质的工作。
-    <br>
-     凭借自己的努力和天份也会变 Winner
-    </p>
-    <p class="lead"><a class="btn btn-lg btn-danger" href="/jobs">马上应征</a></p>
-  </div>
 
-<section id="company">
-  <div class = "container-fluid">
+
+<section id="home" class="sec-main">
+    <h1 class="main-heading">Discover Your Best Future Here</h1>
+</section>
+
+<section id="about" class="sec-about">
+  <div class="container">
+    <h1>About Us</h1>
+
+    <hr />
+
     <div class="row">
-      <div class="col-sm-4 ">
-        <div class="thumbnail">
-          <img src="http://fullstack-public.oss-cn-qingdao.aliyuncs.com/2017-04-15-Screenshot%20at%20Apr%2015%2021-43-31.png" alt="search" class = "img-thumbnail">
-          <div class="caption">
-            <h3>北京朝阳建外SOHO</h3>
-          </div>
+      <div class="col-sm-6 col-sm-offset-3">
+        <p>Hi, WELCOME to OW offer. What's OW meaning? OW is one week. Our mission is helping you to find your dream work just one week. Looks like impossible?
+          Let me tell you, come OW, everything is possible!
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="sec-services">
+  <div class="container">
+    <h1>Why OW Offer?</h1>
+
+    <hr />
+
+    <div class="row">
+      <div class="col-sm-4">
+        <i class="fa fa-4x fa fa-building"></i>
+
+        <h2 class="h3">Top Tech Companies</h2>
+
+        <p>1000+ Companies registered on OW offer, just wating you coming</p>
+      </div>
+
+      <div class="col-sm-4">
+        <i class="fa fa-4x fa-calendar-o"></i>
+
+        <h2 class="h3">Quickly Responsive</h2>
+
+        <p>You can receive 10-20 interview invitations within one week.</p>
+      </div>
+
+      <div class="col-sm-4">
+        <i class="fa fa-4x fa-fighter-jet"></i>
+
+        <h2 class="h3">Higher Effective</h2>
+
+        <p>One Click, one Search, you will get what you want.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="categories">
+  <div class = "container">
+    <h1>Categories</h1>
+
+  <hr />
+
+  <div class="row">
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+        <%= image_tag("developer.png") %>
+        <div class="caption">
+          <h4><%= link_to("Developer", jobs_path(:order => "by_upper_bound")) %></h4>
         </div>
       </div>
-      <div class="col-sm-4 ">
-        <div class="thumbnail">
-          <img src="http://fullstack-public.oss-cn-qingdao.aliyuncs.com/2017-04-15-Screenshot%20at%20Apr%2015%2021-43-48.png" alt="bid" class = "img-thumbnail">
-          <div class="caption">
-            <h3>info@18koffer.com</h3>
-          </div>
+    </div>
+
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+        <%= image_tag("customer-service.png") %>
+        <div class="caption">
+          <h4><%= link_to("Customer Service", jobs_path(:order => "by_upper_bound")) %></h4>
         </div>
       </div>
-      <div class="col-sm-4 ">
-        <div class="thumbnail">
-          <img src="http://fullstack-public.oss-cn-qingdao.aliyuncs.com/2017-04-15-Screenshot%20at%20Apr%2015%2021-44-00.png" alt="heart" class = "img-thumbnail">
-          <div class="caption">
-            <h3>010-12344321</h3>
-          </div>
+    </div>
+
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+        <%= image_tag("healthcare.png") %>
+        <div class="caption">
+          <h4><%= link_to("Health Care", jobs_path(:order => "by_upper_bound")) %></h4>
         </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+        <%= image_tag("sales-marketing.png") %>
+        <div class="caption">
+          <h4><%= link_to("Sales-Marketing", jobs_path(:order => "by_upper_bound")) %></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-md-3">
+     <div class="thumbnail">
+        <%= image_tag("lawyer.png") %>
+        <div class="caption">
+          <h4><%= link_to("Legal", jobs_path(:order => "by_upper_bound")) %></h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+        <%= image_tag("non-profit.png") %>
+        <div class="caption">
+          <h4><%= link_to("Nonprofit", jobs_path(:order => "by_upper_bound")) %></h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+        <%= image_tag("reunion.png") %>
+        <div class="caption">
+          <h4><%= link_to("Human Resources", jobs_path(:order => "by_upper_bound")) %></h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+        <%= image_tag("design.png") %>
+        <div class="caption">
+          <h4><%= link_to("Design", jobs_path(:order => "by_upper_bound")) %></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>
+
+
+
+<section id="testimonials" class="sec-testimonials">
+  <div class="container">
+    <h1>Employees said</h1>
+
+    <hr />
+
+    <div class="row">
+      <div class="col-sm-4">
+        <p class="text-center">"OW offer is such amazing. I got my dream work just one week!"</p>
+
+        <p class="text-right">&mdash; Elizabeth</p>
+      </div>
+
+      <div class="col-sm-4">
+        <p class="text-center">"Are you paid fairly? Big boss know your worth? Come here, you'll got them!"</p>
+
+        <p class="text-right">&mdash; Milly Cooper</p>
+      </div>
+
+      <div class="col-sm-4">
+        <p class="text-center">"I have worked with several different people and it always seemed like a pain—luckily I found OW offer. Thanks them!"</p>
+
+        <p class="text-right">&mdash; Jerry Lai</p>
       </div>
     </div>
   </div>

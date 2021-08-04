@@ -1,53 +1,78 @@
-<div class="pull-right">
-  <%= link_to("Add a job", new_job_path, :class => "btn btn-default") %>
+<br>
+<div class="container-fluid jobs-show-page">
+  <div class="col-md-10 col-md-offset-1 col-lg-9 col-lg-offset-2">
+    <div class="dropdown clearfix pull-right"><br>
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="true">Filter
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuDevider">
+        <li>
+          <%= link_to("Lower Salary", jobs_path(:order => "by_lower_bound")) %>
+        </li>
+        <li>
+          <%= link_to("Upper Salary", jobs_path(:order => "by_upper_bound")) %>
+        </li>
+        <li>
+          <%= link_to("Publish Time", jobs_path) %>
+        </li>
+      </ul>
+    </div><br>
+
+    <% if user_signed_in? && current_user.admin? %>
+      <%= link_to(content_tag(:i, " Back to Admin", class: "fa fa-reply-all"), admin_jobs_path) %>
+    <% end %>
+
+  </div>
 </div>
 
-<div class="dropdown clearfix pull-right">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
-    排序
-      <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" arua-labelledby="dropdownMenuDivider">
-      <li>
-      <%= link_to("按照薪資下限排序", jobs_path(:order => "by_lower_bound")) %>
-      </li>
-      <li>
-        <%= link_to("按照薪資上限排序",jobs_path(:order => "by_upper_bound")) %>
-      </li>
-      <li>
-        <%= link_to("按照發表時間排序",jobs_path) %>
-      </li>
-  </ul>
-</div>
 
-<table class="table table-boldered">
-    <thead>
-        <tr>
-            <td>
-                职缺</td>
-            <td>薪资下限</td>
-            <td>薪资上限</td>
-            <td>刊登时间</td>
-        </tr>
-
-    </thead>
-    <tbody>
-        <% @jobs.each do |job| %>
-        <tr>
-            <td>
-                <%= link_to(job.title, job_path(job)) %>
-            </td>
-            <td>
-                <%= job.wage_lower_bound %>
-            </td>
-            <td>
-                <%= job.wage_upper_bound %>
-            </td>
-            <td>
-                <%= job.created_at %>
-            </td>
-        </tr>
+<% @jobs.each do |job| %>
+  <div class="container-fluid jobs-show-page">
+    <div class="col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+      <br>
+      <div class="pull-right">
+        <% if user_signed_in? && !current_user.admin? %>
+          <% if current_user && current_user.has_applied?(job) %>
+            <%= link_to("Has Applied", new_job_resume_path(job), class: "btn btn-info btn-sm disabled", method: :get) %>
+          <% else %>
+            <%= link_to("Quick Apply", new_job_resume_path(job), class: "btn btn-info btn-sm", method: :get) %>
+          <% end%>
+        <% else %>
+          <%= link_to("Quick Apply", new_job_resume_path(job), class: "btn btn-info btn-sm", method: :get) %>
         <% end %>
-    </tbody>
+      </div>
 
-</table>
+      <p><%= link_to(job.title, job_path(job)) %></p>
+
+      <div class="row">
+        <div class="col-md-6">
+          <p>Salary: <%= job.wage_lower_bound %> ~ <%= job.wage_upper_bound %> </p>
+        </div>
+        <div class="col-md-6">
+          <p><i class="fa fa-address-book-o" aria-hidden="true"></i>  <%= job.wage_upper_bound %></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 col-sm-6">
+          <span><i class="fa fa-user-circle-o" aria-hidden="true"></i> 單位 </span>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <span><i class="fa fa-location-arrow" aria-hidden="true"></i> 城市 </span>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <span><i class="fa fa-clock-o" aria-hidden="true"></i>  <%= time_ago_in_words(job.created_at) %> ago</span>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <span><i class="fa fa-envelope" aria-hidden="true"></i> 聯絡email </span>
+        </div>
+        <hr class"long">
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="text-center">
+  <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+</div>
