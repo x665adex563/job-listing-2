@@ -56,9 +56,53 @@ class JobsController < ApplicationController
     redirect_to jobs_path
   end
 
+  def dps
+    @jobs = case params[:order]
+            when 'by_lower_bound'
+              Job.published.where(:category => "dps").lower_salary.paginate(:page => params[:page], :per_page => 5)
+            when 'by_upper_bound'
+              Job.published.where(:category => "dps").upper_salary.paginate(:page => params[:page], :per_page => 5)
+            else
+              Job.published.where(:category => "dps").recent.paginate(:page => params[:page], :per_page => 5)
+            end
+  end
+
+  def healbooner
+    @jobs = case params[:order]
+            when 'by_lower_bound'
+              Job.published.where(:category => "healbooner").lower_salary.paginate(:page => params[:page], :per_page => 5)
+            when 'by_upper_bound'
+              Job.published.where(:category => "healbooner").upper_salary.paginate(:page => params[:page], :per_page => 5)
+            else
+              Job.published.where(:category => "healbooner").recent.paginate(:page => params[:page], :per_page => 5)
+            end
+  end
+
+  def booner
+    @jobs = case params[:order]
+            when 'by_lower_bound'
+              Job.published.where(:category => "booner").lower_salary.paginate(:page => params[:page], :per_page => 5)
+            when 'by_upper_bound'
+              Job.published.where(:category => "booner").upper_salary.paginate(:page => params[:page], :per_page => 5)
+            else
+              Job.published.where(:category => "booner").recent.paginate(:page => params[:page], :per_page => 5)
+            end
+  end
+
+  def tank
+    @jobs = case params[:order]
+            when 'by_lower_bound'
+              Job.published.where(:category => "tank").lower_salary.paginate(:page => params[:page], :per_page => 5)
+            when 'by_upper_bound'
+              Job.published.where(:category => "tank").upper_salary.paginate(:page => params[:page], :per_page => 5)
+            else
+              Job.published.where(:category => "tank").recent.paginate(:page => params[:page], :per_page => 5)
+            end
+  end
+
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :wage_upper_bound, :wage_lower_bound, :contact_email, :is_hidden)
+    params.require(:job).permit(:title, :description, :wage_upper_bound, :wage_lower_bound, :contact_email, :is_hidden, :city, :company, :category)
   end
 end

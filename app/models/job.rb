@@ -1,16 +1,7 @@
 class Job < ApplicationRecord
-  def publish!
-    self.is_hidden = false
-    self.save
-  end
-
-  def hide!
-    self.is_hidden = true
-    self.save
-  end
 
   validates :title, presence: true
-
+  validates :company, presence: true
   validates :wage_upper_bound, presence: true
   validates :wage_lower_bound, presence: true
   validates :wage_lower_bound, numericality: { greater_than: 0}
@@ -21,6 +12,17 @@ class Job < ApplicationRecord
   scope :upper_salary, -> { order('wage_upper_bound DESC') }
 
   has_many :resumes
+
+
+  def publish!
+    self.is_hidden = false
+    self.save
+  end
+
+  def hide!
+    self.is_hidden = true
+    self.save
+  end
 
 
 end

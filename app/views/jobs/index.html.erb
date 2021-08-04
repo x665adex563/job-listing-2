@@ -50,22 +50,22 @@
           <p>Salary: <%= job.wage_lower_bound %> ~ <%= job.wage_upper_bound %> </p>
         </div>
         <div class="col-md-6">
-          <p><i class="fa fa-address-book-o" aria-hidden="true"></i>  <%= job.wage_upper_bound %></p>
+          <p><i class="fa fa-address-card-o" aria-hidden="true"></i>  <%= job.category %></p>
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-3 col-sm-6">
-          <span><i class="fa fa-user-circle-o" aria-hidden="true"></i> 單位 </span>
+          <span><i class="fa fa-user-circle-o" aria-hidden="true"></i> <%= job.company %> </span>
         </div>
         <div class="col-md-3 col-sm-6">
-          <span><i class="fa fa-location-arrow" aria-hidden="true"></i> 城市 </span>
+          <span><i class="fa fa-location-arrow" aria-hidden="true"></i> <%= job.city %> </span>
         </div>
         <div class="col-md-3 col-sm-6">
           <span><i class="fa fa-clock-o" aria-hidden="true"></i>  <%= time_ago_in_words(job.created_at) %> ago</span>
         </div>
         <div class="col-md-3 col-sm-6">
-          <span><i class="fa fa-envelope" aria-hidden="true"></i> 聯絡email </span>
+          <span><i class="fa fa-envelope" aria-hidden="true"></i> <%= job.contact_email %> </span>
         </div>
         <hr class"long">
       </div>
