@@ -1,29 +1,20 @@
-<br><br>
-
-<div class="pull-right">
-  <%= link_to("Add a job", new_admin_job_path, :class => "btn btn-default" ) %>
-</div><br><br>
-
-
 <% @jobs.each do |job| %>
   <div class="container-fluid jobs-show-page">
     <div class="col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
-
+      <br>
       <div class="pull-right">
-        <%= link_to("Edit", edit_admin_job_path(job), :class => "btn btn-xs btn-info") %>
-        <%= link_to("Destroy", admin_job_path(job), :method => :delete, :class => "btn btn-xs btn-danger", :data => { :confirm => "Are you sure?" }) %>
-        <% if job.is_hidden %>
-          <%= link_to("Publish", publish_admin_job_path(job) , :method => :post, :class => "btn btn-xs btn-success") %>
+        <% if user_signed_in? && !current_user.admin? %>
+          <% if current_user && current_user.has_applied?(job) %>
+            <%= link_to("Has Applied", new_job_resume_path(job), class: "btn btn-info btn-sm disabled", method: :get) %>
+          <% else %>
+            <%= link_to("Quick Apply", new_job_resume_path(job), class: "btn btn-info btn-sm", method: :get) %>
+          <% end%>
         <% else %>
-          <%= link_to("Hide", hide_admin_job_path(job), :method => :post,  :class => "btn btn-xs btn-warning") %>
+          <%= link_to("Quick Apply", new_job_resume_path(job), class: "btn btn-info btn-sm", method: :get) %>
         <% end %>
-        <%= link_to("Resumes Count", admin_job_resumes_path(job)) %> <span class="badge"><%= job.resumes.count %></span>
       </div>
 
-      <p>
-      <%= render_job_status(job) %>
-      <%= link_to(job.title, job_path(job)) %>
-      </p>
+      <p><%= link_to(job.title, job_path(job)) %></p>
 
       <div class="row">
         <div class="col-md-6">
@@ -51,5 +42,4 @@
       </div>
     </div>
   </div>
-
 <% end %>

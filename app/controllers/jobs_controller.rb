@@ -89,14 +89,14 @@ class JobsController < ApplicationController
             end
   end
 
-  def tank
+  def mechanism
     @jobs = case params[:order]
             when 'by_lower_bound'
-              Job.published.where(:category => "tank").lower_salary.paginate(:page => params[:page], :per_page => 5)
+              Job.published.where(:category => "mechanism").lower_salary.paginate(:page => params[:page], :per_page => 5)
             when 'by_upper_bound'
-              Job.published.where(:category => "tank").upper_salary.paginate(:page => params[:page], :per_page => 5)
+              Job.published.where(:category => "mechanism").upper_salary.paginate(:page => params[:page], :per_page => 5)
             else
-              Job.published.where(:category => "tank").recent.paginate(:page => params[:page], :per_page => 5)
+              Job.published.where(:category => "mechanism").recent.paginate(:page => params[:page], :per_page => 5)
             end
   end
 

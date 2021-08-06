@@ -46,12 +46,12 @@ $red: #ad0000;
   background-color: #e5e5e5;
 }
 
-/*=Typography=*/
+//~~~~~~~~~~typography(排版)~~~~~~~~~~
 
 html {
   font-size: 16px;
   position: relative;
-  min-height: 100%;
+  min-height: 115%;
 }
 
 body {
@@ -102,7 +102,7 @@ div.alert {
   border-radius: 0;
 }
 
-//~~~~~~~~~~Landing page contact~~~~~~~~~~
+//~~~~~~~~~~Landing page content~~~~~~~~~~
 .sec-main {
   margin-top: 10px;
 }
@@ -149,13 +149,13 @@ p {
   text-decoration: none;
 }
 
-//~~~~~~~~~~Landing page base~~~~~~~~~~
+//~~~~~~~~~~base~~~~~~~~~~
 section {
   padding: 5em 0;
 }
 
 footer {
-  padding: 2em 0;
+  padding: 5em 0;
 }
 
 form {
@@ -357,7 +357,7 @@ hr {
   background-color: #111;
   text-align: center;
   .container {
-    margin-top: 20px;
+    margin-top: -20px;
     color: #fff;
     width: 100%;
   }
@@ -424,7 +424,7 @@ a.socialIcon:hover, .socialHoverClass {
 	-moz-transition: all 0.2s;
 	-o-transition: all 0.2s;
 	-ms-transition: all 0.2s;
-	transition: all 0.2s;
+	transition: all 0.3s;
 }
 .social-circle i {
 	color: #fff;
