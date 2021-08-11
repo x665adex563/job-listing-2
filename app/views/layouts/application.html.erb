@@ -10,12 +10,14 @@
   </head>
 
   <body>
-      <div class="page-wrapper">
-         <%= render "common/navbar" %>
-          <%= render "common/flashes" %>
-          <%= yield %>
+    <div class="page-wrapper">
+      <%= render "common/navbar" %>
+      <%= render "common/flashes" %>
+      <div class="row">
+        <%= yield %>
       </div>
-      <%= render "common/footer" %>
-      
+      <%=  render "common/footer" %>
+    </div>
+
   </body>
 </html>

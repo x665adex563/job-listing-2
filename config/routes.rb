@@ -2,6 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :jobs do
+    collection do
+      get :search
+      get :dps
+      get :healbooner
+      get :booner
+      get :mechanism
+    end
     resources :resumes
   end
 

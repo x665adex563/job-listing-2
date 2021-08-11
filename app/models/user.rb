@@ -9,4 +9,12 @@ class User < ApplicationRecord
   end
 
   has_many :resumes
+
+  def has_applied?(job)
+    applied_jobs.include?(job)
+  end
+
+  def apply!(job)
+    applied_jobs << job
+  end
 end

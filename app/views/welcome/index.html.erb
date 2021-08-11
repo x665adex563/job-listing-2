@@ -65,7 +65,7 @@
       <div class="thumbnail">
         <%= image_tag("developer.png") %>
         <div class="caption">
-          <h4><%= link_to("Developer", jobs_path(:order => "by_upper_bound")) %></h4>
+          <h4><%= link_to("dps", dps_jobs_path(:order => "by_dps")) %></h4>
         </div>
       </div>
     </div>
@@ -74,7 +74,7 @@
       <div class="thumbnail">
         <%= image_tag("customer-service.png") %>
         <div class="caption">
-          <h4><%= link_to("Customer Service", jobs_path(:order => "by_upper_bound")) %></h4>
+          <h4><%= link_to("healbooner", healbooner_jobs_path(:order => "by_healbooner")) %></h4>
         </div>
       </div>
     </div>
@@ -83,7 +83,7 @@
       <div class="thumbnail">
         <%= image_tag("healthcare.png") %>
         <div class="caption">
-          <h4><%= link_to("Health Care", jobs_path(:order => "by_upper_bound")) %></h4>
+          <h4><%= link_to("booner", booner_jobs_path(:order => "by_booner")) %></h4>
         </div>
       </div>
     </div>
@@ -92,48 +92,12 @@
       <div class="thumbnail">
         <%= image_tag("sales-marketing.png") %>
         <div class="caption">
-          <h4><%= link_to("Sales-Marketing", jobs_path(:order => "by_upper_bound")) %></h4>
+          <h4><%= link_to("mechanism", mechanism_jobs_path(:order => "by_mechanism")) %></h4>
         </div>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-sm-6 col-md-3">
-     <div class="thumbnail">
-        <%= image_tag("lawyer.png") %>
-        <div class="caption">
-          <h4><%= link_to("Legal", jobs_path(:order => "by_upper_bound")) %></h4>
-        </div>
-      </div>
-    </div>
 
-    <div class="col-sm-6 col-md-3">
-      <div class="thumbnail">
-        <%= image_tag("non-profit.png") %>
-        <div class="caption">
-          <h4><%= link_to("Nonprofit", jobs_path(:order => "by_upper_bound")) %></h4>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-6 col-md-3">
-      <div class="thumbnail">
-        <%= image_tag("reunion.png") %>
-        <div class="caption">
-          <h4><%= link_to("Human Resources", jobs_path(:order => "by_upper_bound")) %></h4>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-6 col-md-3">
-      <div class="thumbnail">
-        <%= image_tag("design.png") %>
-        <div class="caption">
-          <h4><%= link_to("Design", jobs_path(:order => "by_upper_bound")) %></h4>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 </section>

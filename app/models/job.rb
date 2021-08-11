@@ -13,6 +13,14 @@ class Job < ApplicationRecord
 
   has_many :resumes
 
+  def self.search(search)
+    		if search
+      		#where("title LIKE ?", "%#{search}%")
+    			where("title LIKE :search OR description LIKE :search", search: "%#{search}%")
+    		else
+      		all
+      	end
+  end
 
   def publish!
     self.is_hidden = false
