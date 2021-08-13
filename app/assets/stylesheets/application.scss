@@ -69,7 +69,7 @@ body {
   margin-bottom: 0;
 }
 
-//~~~~~~~~~~navbar contact~~~~~~~~~~
+//~~~~~~~~~~navbar content~~~~~~~~~~
 .navbar a,
 .sec-about p {
   text-align: center;
@@ -188,6 +188,7 @@ hr {
 
 .sec-folio img {
   max-width: 100%;
+
 }
 
 //~~~~~~~~~~navbar~~~~~~~~~~
@@ -210,14 +211,14 @@ hr {
 
 
 /*Main*/
-
+  /* Landing page 上方大圖 */
 .sec-main {
   position: relative;
   height: 560px;
-  /*background: url(https://source.unsplash.com/kVf7VRgg4p8/1920x1080) no-repeat center center; */
-  background: asset-data-url("picture-3.jpg") no-repeat center center;
+  background: asset-data-url("gw2_image1.jpeg") no-repeat center center;
   background-size: cover;
 
+//首頁上方大圖，不透明黑幕
   &:after {
     content: "";
     position: absolute;

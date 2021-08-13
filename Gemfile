@@ -41,6 +41,8 @@ gem 'will_paginate-bootstrap'
 gem 'ransack'
 gem 'seo_helper'
 
+gem 'will_paginate'
+
 
 
 group :development, :test do

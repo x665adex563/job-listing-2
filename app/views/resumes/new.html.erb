@@ -1,10 +1,14 @@
-<h3> 投交履歷到 <%= @job.title %> </h3>
+<br><br>
 
-<hr>
+<div class="resume-new-page">
+  <div class="col-md-4 col-md-offset-4">
+    <h3 class="text-center"> Applying Job for <%= @job.title %> </h3>
+    <br>
+    <%= simple_form_for [@job, @resume] do |f| %>
+      <%= f.input :content %>
+      <%= f.input :attachment %>
 
-<%= simple_form_for [@job, @resume] do |f| %>
-  <%= f.input :content %>
-  <%= f.input :attachment %>
-  
-  <%= f.submit "送出" %>
-<% end %>
+      <%= f.submit "Submit", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>

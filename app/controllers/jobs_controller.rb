@@ -10,14 +10,30 @@ class JobsController < ApplicationController
     end
   end
 
+  # def index
+  #   @jobs = case params[:order]
+  #   when 'by_lower_bound'
+  #     Job.published.lower_salary.paginate(:page => params[:page], :per_page => 5)
+  #   when 'by_upper_bound'
+  #     Job.published.upper_salary.paginate(:page => params[:page], :per_page => 5)
+  #   else
+  #     Job.published.recent.paginate(:page => params[:page], :per_page => 5)
+  #   end
+  # end
+
   def index
-    @jobs = case params[:order]
-    when 'by_lower_bound'
-      Job.published.lower_salary.paginate(:page => params[:page], :per_page => 5)
-    when 'by_upper_bound'
-      Job.published.upper_salary.paginate(:page => params[:page], :per_page => 5)
-    else
-      Job.published.recent.paginate(:page => params[:page], :per_page => 5)
+    @jobs = Job.all
+    if params[:search]
+      @jobs = Job.published.search(params[:search]).recent.paginate(:page => params[:page], :per_page => 7)
+    elsif
+      @jobs = case params[:order]
+      when 'by_lower_bound'
+        Job.published.lower_salary.paginate(:page => params[:page], :per_page => 5)
+      when 'by_upper_bound'
+        Job.published.upper_salary.paginate(:page => params[:page], :per_page => 5)
+      else
+        Job.published.recent.paginate(:page => params[:page], :per_page => 5)
+      end
     end
   end
 
